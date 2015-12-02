@@ -1,0 +1,1254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ESER_MINIMAL_REGRESSION_12SCN_PAM" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">text/xml</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT_VARIABLES" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="URL" elementType="Argument">
+            <stringProp name="Argument.name">URL</stringProp>
+            <stringProp name="Argument.value">estcuatvlb.global.umusic.ext</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">estcuatvlb.global.umusic.ext</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">47006</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_URL" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_URL</stringProp>
+            <stringProp name="Argument.value">umg-es-indexer-uat-elb.umusic.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_PORT" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_PORT</stringProp>
+            <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CURL" elementType="Argument">
+            <stringProp name="Argument.name">CURL</stringProp>
+            <stringProp name="Argument.value">es-connector.umusic.com/rest-facade</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="WAITTIME" elementType="Argument">
+            <stringProp name="Argument.name">WAITTIME</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="UAT_DB_CONFIG" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">myDatabase</stringProp>
+        <stringProp name="dbUrl">jdbc:jtds:sqlserver://ESDBMSSQLnonPRD.global.umusic.ext:2619/ESDB_UAT</stringProp>
+        <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">EXkAEMsBO0qie0I7OHds</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">GGESREAD</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+        <collectionProp name="AuthManager.auth_list">
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">https://estcuatvlb.global.umusic.ext:47006</stringProp>
+            <stringProp name="Authorization.username">user</stringProp>
+            <stringProp name="Authorization.password"></stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?q=physicalassetmessage</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?_messageheader_resourceid=${P_ID}</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+        </collectionProp>
+      </AuthManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="JMX Connections" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1446489789000</longProp>
+        <longProp name="ThreadGroup.end_time">1446489789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Test Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">60000</stringProp>
+        </TestAction>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_MULE_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1115175462">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-821254634">service:jmx:rmi:///jndi/rmi://172.25.170.144:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1341605062">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-821254634">service:jmx:rmi:///jndi/rmi://172.25.170.144:46089/jmxrmi</stringProp>
+              <stringProp reference="../../collectionProp/stringProp[3]"/>
+              <stringProp reference="../../collectionProp/stringProp[4]"/>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_MULE_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1787989009">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-867902378">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="50197763">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-867902378">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1538288778">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-756610506">service:jmx:rmi:///jndi/rmi://172.25.170.144:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="623859639">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-756610506">service:jmx:rmi:///jndi/rmi://172.25.170.144:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-116760289">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-803258250">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="783776028">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-354505636">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ex:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE1_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1432886555">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-1347466381">service:jmx:rmi:///jndi/rmi://172.25.170.137:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="721699080">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-1347466381">service:jmx:rmi:///jndi/rmi://172.25.170.137:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE1_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="21782884">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-713249922">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-2118598777">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-713249922">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE2_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1156095196">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="1571613533">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="998490439">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="1571613533">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE2_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1105749595">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-1853025006">service:jmx:rmi:///jndi/rmi://172.25.170.138:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1034632066">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-1853025006">service:jmx:rmi:///jndi/rmi://172.25.170.138:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE3_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-523330538">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-595971493">service:jmx:rmi:///jndi/rmi://172.25.170.140:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1631255097">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-595971493">service:jmx:rmi:///jndi/rmi://172.25.170.140:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE3_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-924221368">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-438490308">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1230364267">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-438490308">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT1_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1076108249">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-1282822253">service:jmx:rmi:///jndi/rmi://172.25.170.137:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1086040168">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-1282822253">service:jmx:rmi:///jndi/rmi://172.25.170.137:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT1_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-529501114">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1632647303">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT2_AMQ_URL" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1856809764">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-276009115">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT2_AMQ_IP" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="860244357">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-1788380878">service:jmx:rmi:///jndi/rmi://172.25.170.138:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1272574522">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-1788380878">service:jmx:rmi:///jndi/rmi://172.25.170.138:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT3_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1737715017">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-531327365">service:jmx:rmi:///jndi/rmi://172.25.170.140:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-395103862">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-531327365">service:jmx:rmi:///jndi/rmi://172.25.170.140:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT3_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1346347495">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="815800922">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UATALL_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1346347495">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="815800922">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1857941822">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-274877057">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-527236998">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1634911419">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

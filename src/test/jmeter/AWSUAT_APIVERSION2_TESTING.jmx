@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="ESER_MINIMAL_REGRESSION_12SCN_PAM" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="false">
+        <collectionProp name="AuthManager.auth_list">
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">https://estcuatvlb.global.umusic.ext:47006</stringProp>
+            <stringProp name="Authorization.username">user</stringProp>
+            <stringProp name="Authorization.password"></stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">https://es-connector-uataws.umusic.com:47003</stringProp>
+            <stringProp name="Authorization.username">user</stringProp>
+            <stringProp name="Authorization.password"></stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+        </collectionProp>
+      </AuthManager>
+      <hashTree/>
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+        <collectionProp name="HeaderManager.headers">
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Content-Type</stringProp>
+            <stringProp name="Header.value">text/xml</stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Header">
+            <stringProp name="Header.name">Authorization</stringProp>
+            <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+          </elementProp>
+        </collectionProp>
+      </HeaderManager>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="AWSUAT_VARIABLES" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="URL" elementType="Argument">
+            <stringProp name="Argument.name">URL</stringProp>
+            <stringProp name="Argument.value">aws19lvapp003.umusic.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">es-connector-uataws.umusic.com</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">443</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">443/47003</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_URL" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_URL</stringProp>
+            <stringProp name="Argument.value">internal-cloudaws19-es-search-uat-elb-1711255102.us-east-1.elb.amazonaws.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">aws19lvapp001.umusic.net</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_PORT" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_PORT</stringProp>
+            <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">10.254.176.240</stringProp>
+          </elementProp>
+          <elementProp name="CURL" elementType="Argument">
+            <stringProp name="Argument.name">CURL</stringProp>
+            <stringProp name="Argument.value">es-connector.umusic.com/rest-facade</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="WAITTIME" elementType="Argument">
+            <stringProp name="Argument.name">WAITTIME</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LB_URL" elementType="Argument">
+            <stringProp name="Argument.name">LB_URL</stringProp>
+            <stringProp name="Argument.value">es-connector-uataws.umusic.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="UAT_VARIABLES" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="URL" elementType="Argument">
+            <stringProp name="Argument.name">URL</stringProp>
+            <stringProp name="Argument.value">estcuatvlb.global.umusic.ext</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">estcuatvlb.global.umusic.ext</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">47006</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_URL" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_URL</stringProp>
+            <stringProp name="Argument.value">umg-es-indexer-uat-elb.umusic.net</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ELASTICSEARCH_PORT" elementType="Argument">
+            <stringProp name="Argument.name">ELASTICSEARCH_PORT</stringProp>
+            <stringProp name="Argument.value">80</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CURL" elementType="Argument">
+            <stringProp name="Argument.name">CURL</stringProp>
+            <stringProp name="Argument.value">es-connector.umusic.com/rest-facade</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="WAITTIME" elementType="Argument">
+            <stringProp name="Argument.name">WAITTIME</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="UAT_DB_CONFIG" enabled="false">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">myDatabase</stringProp>
+        <stringProp name="dbUrl">jdbc:jtds:sqlserver://ESDBMSSQLnonPRD.global.umusic.ext:2619/ESDB_UAT</stringProp>
+        <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">EXkAEMsBO0qie0I7OHds</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">GGESREAD</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="AWSUAT_DB_CONFIG" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">myDatabase</stringProp>
+        <stringProp name="dbUrl">jdbc:jtds:sqlserver://muleuatmssqldb.cvteskww8cdf.us-east-1.rds.amazonaws.com:1433/ESDB_UAT</stringProp>
+        <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password">zechE7EQux3g</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">muleuatdbuser</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+        <collectionProp name="AuthManager.auth_list">
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">https://estcuatvlb.global.umusic.ext:47006</stringProp>
+            <stringProp name="Authorization.username">user</stringProp>
+            <stringProp name="Authorization.password"></stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?q=physicalassetmessage</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?_messageheader_resourceid=${P_ID}</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+        </collectionProp>
+      </AuthManager>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ESER_V2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">100</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1446033086000</longProp>
+        <longProp name="ThreadGroup.end_time">1446033086000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1_Publish_ER_V2" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+          <stringProp name="TestPlan.comments">Index Search for Physical Asset Message by id using GET</stringProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="P_ID" elementType="Argument">
+                <stringProp name="Argument.name">P_ID</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMdd&apos;T&apos;hhmmss)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="DONE" elementType="Argument">
+                <stringProp name="Argument.name">DONE</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="76784135">P_ID1</stringProp>
+              <stringProp name="-1914269761">P_VERS</stringProp>
+              <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="2476906">P_ID</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-1763608242">
+                <stringProp name="-929428661">${__time(yyyyMMdd&apos;T&apos;hhmmss)}P1</stringProp>
+                <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="3569038">true</stringProp>
+                <stringProp name="718816657">20151116T031320P1</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Publish Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <intProp name="LoopController.loops">-1</intProp>
+          </LoopController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">99999</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">P_Counter</stringProp>
+              <stringProp name="CounterConfig.format">00000</stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Publish" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;PhysicalAssetMessage xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://schemas.umusic.com/umg.eai.asset-messages.v1&quot;&gt;&#xd;
+  &lt;MessageHeader xmlns=&quot;&quot;&gt;&#xd;
+    &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&lt;/MessageId&gt;&#xd;
+    &lt;MessageSource&gt;AIC&lt;/MessageSource&gt;&#xd;
+    &lt;MessageUtcDateTimeStamp&gt;2015-04-30T09:33:42.1004185Z&lt;/MessageUtcDateTimeStamp&gt;&#xd;
+    &lt;ResourceType&gt;PhysicalAssetMessage&lt;/ResourceType&gt;&#xd;
+    &lt;ResourceId&gt;${P_ID}${P_Counter}&lt;/ResourceId&gt;&#xd;
+    &lt;ResourceUtcDateTimeStamp&gt;2015-05-11T08:33:40Z&lt;/ResourceUtcDateTimeStamp&gt;&#xd;
+    &lt;SchemaVersion&gt;1.0&lt;/SchemaVersion&gt;&#xd;
+    &lt;DefaultLanguageScriptCode&gt;en&lt;/DefaultLanguageScriptCode&gt;&#xd;
+  &lt;/MessageHeader&gt;&#xd;
+  &lt;PhysicalAsset xmlns=&quot;&quot;&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Barcode&quot; IsPrimaryId=&quot;true&quot;&gt;${P_ID}${P_Counter}-Mule&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Catalog&quot; IsPrimaryId=&quot;false&quot;&gt;878&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;Description&gt;CRY/NOW YOUR GONE&lt;/Description&gt;&#xd;
+    &lt;Version&gt;Copy&lt;/Version&gt;&#xd;
+    &lt;Location&gt;&#xd;
+      &lt;Country&gt;UK&lt;/Country&gt;&#xd;
+      &lt;VaultType&gt;UMG&lt;/VaultType&gt;&#xd;
+      &lt;VaultName&gt;ADS-TNT&lt;/VaultName&gt;&#xd;
+      &lt;ShelfCode&gt;ADS-TNT&lt;/ShelfCode&gt;&#xd;
+      &lt;ArchivalStatus&gt;Shelved&lt;/ArchivalStatus&gt;&#xd;
+    &lt;/Location&gt;&#xd;
+    &lt;Format&gt;1/4 inch audio tape[Reel Size - 5 &quot;]&lt;/Format&gt;&#xd;
+    &lt;MediaType&gt;Audio&lt;/MediaType&gt;&#xd;
+    &lt;TapeWidth&gt;5 inch&lt;/TapeWidth&gt;&#xd;
+    &lt;Label&gt;&#xd;
+      &lt;Name&gt;Dick James Music&lt;/Name&gt;&#xd;
+    &lt;/Label&gt;&#xd;
+    &lt;Artist&gt;&#xd;
+      &lt;PartyName&gt;&#xd;
+        &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+      &lt;/PartyName&gt;&#xd;
+    &lt;/Artist&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;1&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;CRY&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;2&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;NOW YOUR GONE&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+  &lt;/PhysicalAsset&gt;&#xd;
+&lt;/PhysicalAssetMessage&gt;&#xd;
+&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47004</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/enterprise-repository-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2_Search_ES_V2" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="P_ID" elementType="Argument">
+                <stringProp name="Argument.name">P_ID</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMdd&apos;T&apos;hhmmss)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="DONE" elementType="Argument">
+                <stringProp name="Argument.name">DONE</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="76784135">P_ID1</stringProp>
+              <stringProp name="-1914269761">P_VERS</stringProp>
+              <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="2476906">P_ID</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-1763608242">
+                <stringProp name="-929428661">${__time(yyyyMMdd&apos;T&apos;hhmmss)}P1</stringProp>
+                <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="3569038">true</stringProp>
+                <stringProp name="718816657">20151116T031320P1</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Index Search Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC08_03_SearchPOST_Index_V1" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;EnterpriseMessage xmlns=&quot;http://schemas.umusic.com/enterprise/services/2014/05&quot; xmlns:ns0=&quot;http://es.umgi.com/XMLSchemas/CustomProps&quot;&gt;&#xd;
+    &lt;EnterpriseHeader&gt;&#xd;
+        &lt;resourceid&gt;${P_ID}&lt;/resourceid&gt;&#xd;
+        &lt;ThreadId&gt;0b0e09ab-5fb6-46f7-9c55-3b856acfa567&lt;/ThreadId&gt;&#xd;
+        &lt;CreatedUtc&gt;2015-11-12 13:40:45.157Z&lt;/CreatedUtc&gt;&#xd;
+        &lt;Source&gt;userSource&lt;/Source&gt;&#xd;
+        &lt;Action&gt;Search&lt;/Action&gt;&#xd;
+        &lt;Communication&gt;Synchronous&lt;/Communication&gt;&#xd;
+        &lt;Resource&gt;&#xd;
+            &lt;ResourceName&gt;physicalassetmessage&lt;/ResourceName&gt;&#xd;
+        &lt;/Resource&gt;&#xd;
+    &lt;/EnterpriseHeader&gt;&#xd;
+    &lt;MessageBody&gt;&#xd;
+        &lt;EnterpriseSearch&gt;&#xd;
+            &lt;Offset&gt;0&lt;/Offset&gt;&#xd;
+            &lt;Rows&gt;10&lt;/Rows&gt;&#xd;
+            &lt;Result&gt;index&lt;/Result&gt;&#xd;
+            &lt;SearchQuery&gt;&quot;resourceid&quot;: &quot;${P_ID}&quot;&lt;/SearchQuery&gt;&#xd;
+        &lt;/EnterpriseSearch&gt;&#xd;
+    &lt;/MessageBody&gt;&#xd;
+&lt;/EnterpriseMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47002</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/enterprise-search-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC08_03_SearchPOST_Index_V1" enabled="false">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;EnterpriseMessage xmlns=&quot;http://schemas.umusic.com/enterprise/services/2014/05&quot; xmlns:ns0=&quot;http://es.umgi.com/XMLSchemas/CustomProps&quot;&gt;&#xd;
+    &lt;EnterpriseHeader&gt;&#xd;
+        &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&lt;/MessageId&gt;        &#xd;
+        &lt;ThreadId&gt;0b0e09ab-5fb6-46f7-9c55-3b856acfa567&lt;/ThreadId&gt;&#xd;
+        &lt;CreatedUtc&gt;2015-11-12 13:40:45.157Z&lt;/CreatedUtc&gt;&#xd;
+        &lt;Source&gt;userSource&lt;/Source&gt;&#xd;
+        &lt;Action&gt;Search&lt;/Action&gt;&#xd;
+        &lt;Communication&gt;Synchronous&lt;/Communication&gt;&#xd;
+        &lt;Resource&gt;&#xd;
+            &lt;ResourceName&gt;physicalassetmessage&lt;/ResourceName&gt;&#xd;
+        &lt;/Resource&gt;&#xd;
+    &lt;/EnterpriseHeader&gt;&#xd;
+    &lt;MessageBody&gt;&#xd;
+        &lt;EnterpriseSearch&gt;&#xd;
+            &lt;Offset&gt;0&lt;/Offset&gt;&#xd;
+            &lt;Rows&gt;10&lt;/Rows&gt;&#xd;
+            &lt;Result&gt;index&lt;/Result&gt;&#xd;
+            &lt;SearchQuery&gt;&quot;messageid&quot;: &quot;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&quot;&lt;/SearchQuery&gt;&#xd;
+        &lt;/EnterpriseSearch&gt;&#xd;
+    &lt;/MessageBody&gt;&#xd;
+&lt;/EnterpriseMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47002</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/enterprise-search-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3_Publish_RF_V2" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+          <stringProp name="TestPlan.comments">Index Search for Physical Asset Message by id using GET</stringProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="P_ID" elementType="Argument">
+                <stringProp name="Argument.name">P_ID</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMdd&apos;T&apos;hhmmss)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="DONE" elementType="Argument">
+                <stringProp name="Argument.name">DONE</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="2476906">P_ID</stringProp>
+              <stringProp name="-1914269761">P_VERS</stringProp>
+              <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="76784136">P_ID2</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-784405623">
+                <stringProp name="-1924010131">v2ag${__time(yyyyMMdd&apos;T&apos;hhmmss)}P1</stringProp>
+                <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="3569038">true</stringProp>
+                <stringProp name="967757417">v2ac${__time(yyyyMMdd&apos;T&apos;hhmmss)}P1</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Publish Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">100</stringProp>
+          </LoopController>
+          <hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end">99999</stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">P_Counter</stringProp>
+              <stringProp name="CounterConfig.format">00000</stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Publish" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;PhysicalAssetMessage xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://schemas.umusic.com/umg.eai.asset-messages.v1&quot;&gt;&#xd;
+  &lt;MessageHeader xmlns=&quot;&quot;&gt;&#xd;
+    &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&lt;/MessageId&gt;&#xd;
+    &lt;MessageSource&gt;AIC&lt;/MessageSource&gt;&#xd;
+    &lt;MessageUtcDateTimeStamp&gt;2015-04-30T09:33:42.1004185Z&lt;/MessageUtcDateTimeStamp&gt;&#xd;
+    &lt;ResourceType&gt;physicalassetmessage&lt;/ResourceType&gt;&#xd;
+    &lt;ResourceId&gt;${P_ID}${P_Counter}&lt;/ResourceId&gt;&#xd;
+    &lt;ResourceUtcDateTimeStamp&gt;2015-05-11T08:33:40Z&lt;/ResourceUtcDateTimeStamp&gt;&#xd;
+    &lt;SchemaVersion&gt;1.0&lt;/SchemaVersion&gt;&#xd;
+    &lt;DefaultLanguageScriptCode&gt;en&lt;/DefaultLanguageScriptCode&gt;&#xd;
+  &lt;/MessageHeader&gt;&#xd;
+  &lt;PhysicalAsset xmlns=&quot;&quot;&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Barcode&quot; IsPrimaryId=&quot;true&quot;&gt;${P_ID}${P_Counter}-Mule&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Catalog&quot; IsPrimaryId=&quot;false&quot;&gt;878&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;Description&gt;CRY/NOW YOUR GONE&lt;/Description&gt;&#xd;
+    &lt;Version&gt;Copy&lt;/Version&gt;&#xd;
+    &lt;Location&gt;&#xd;
+      &lt;Country&gt;UK&lt;/Country&gt;&#xd;
+      &lt;VaultType&gt;UMG&lt;/VaultType&gt;&#xd;
+      &lt;VaultName&gt;ADS-TNT&lt;/VaultName&gt;&#xd;
+      &lt;ShelfCode&gt;ADS-TNT&lt;/ShelfCode&gt;&#xd;
+      &lt;ArchivalStatus&gt;Shelved&lt;/ArchivalStatus&gt;&#xd;
+    &lt;/Location&gt;&#xd;
+    &lt;Format&gt;1/4 inch audio tape[Reel Size - 5 &quot;]&lt;/Format&gt;&#xd;
+    &lt;MediaType&gt;Audio&lt;/MediaType&gt;&#xd;
+    &lt;TapeWidth&gt;5 inch&lt;/TapeWidth&gt;&#xd;
+    &lt;Label&gt;&#xd;
+      &lt;Name&gt;Dick James Music&lt;/Name&gt;&#xd;
+    &lt;/Label&gt;&#xd;
+    &lt;Artist&gt;&#xd;
+      &lt;PartyName&gt;&#xd;
+        &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+      &lt;/PartyName&gt;&#xd;
+    &lt;/Artist&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;1&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;CRY&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;2&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;NOW YOUR GONE&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+  &lt;/PhysicalAsset&gt;&#xd;
+&lt;/PhysicalAssetMessage&gt;&#xd;
+&#xd;
+</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47003</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/publish-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="4_Search_RF_V2" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="P_ID" elementType="Argument">
+                <stringProp name="Argument.name">P_ID</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMdd&apos;T&apos;hhmmss)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="DONE" elementType="Argument">
+                <stringProp name="Argument.name">DONE</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="76784135">P_ID1</stringProp>
+              <stringProp name="-1914269761">P_VERS</stringProp>
+              <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="2476906">P_ID</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-1763608242">
+                <stringProp name="-929428661">${__time(yyyyMMdd&apos;T&apos;hhmmss)}P1</stringProp>
+                <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="3569038">true</stringProp>
+                <stringProp name="718816657">20151116T031320P1</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Index Search Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <intProp name="LoopController.loops">-1</intProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC08_03_SearchPOST_Index_V1" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;EnterpriseMessage xmlns=&quot;http://schemas.umusic.com/enterprise/services/2014/05&quot; xmlns:ns0=&quot;http://es.umgi.com/XMLSchemas/CustomProps&quot;&gt;&#xd;
+    &lt;EnterpriseHeader&gt;&#xd;
+        &lt;resourceid&gt;${P_ID}&lt;/resourceid&gt;&#xd;
+        &lt;ThreadId&gt;0b0e09ab-5fb6-46f7-9c55-3b856acfa567&lt;/ThreadId&gt;&#xd;
+        &lt;CreatedUtc&gt;2015-11-12 13:40:45.157Z&lt;/CreatedUtc&gt;&#xd;
+        &lt;Source&gt;userSource&lt;/Source&gt;&#xd;
+        &lt;Action&gt;Search&lt;/Action&gt;&#xd;
+        &lt;Communication&gt;Synchronous&lt;/Communication&gt;&#xd;
+        &lt;Resource&gt;&#xd;
+            &lt;ResourceName&gt;physicalassetmessage&lt;/ResourceName&gt;&#xd;
+        &lt;/Resource&gt;&#xd;
+    &lt;/EnterpriseHeader&gt;&#xd;
+    &lt;MessageBody&gt;&#xd;
+        &lt;EnterpriseSearch&gt;&#xd;
+            &lt;Offset&gt;0&lt;/Offset&gt;&#xd;
+            &lt;Rows&gt;10&lt;/Rows&gt;&#xd;
+            &lt;Result&gt;index&lt;/Result&gt;&#xd;
+            &lt;SearchQuery&gt;&quot;resourceid&quot;: &quot;${P_ID}&quot;&lt;/SearchQuery&gt;&#xd;
+        &lt;/EnterpriseSearch&gt;&#xd;
+    &lt;/MessageBody&gt;&#xd;
+&lt;/EnterpriseMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47003</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/search-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC08_03_SearchPOST_Index_V1" enabled="false">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#xd;
+&lt;EnterpriseMessage xmlns=&quot;http://schemas.umusic.com/enterprise/services/2014/05&quot; xmlns:ns0=&quot;http://es.umgi.com/XMLSchemas/CustomProps&quot;&gt;&#xd;
+    &lt;EnterpriseHeader&gt;&#xd;
+        &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&lt;/MessageId&gt;        &#xd;
+        &lt;ThreadId&gt;0b0e09ab-5fb6-46f7-9c55-3b856acfa567&lt;/ThreadId&gt;&#xd;
+        &lt;CreatedUtc&gt;2015-11-12 13:40:45.157Z&lt;/CreatedUtc&gt;&#xd;
+        &lt;Source&gt;userSource&lt;/Source&gt;&#xd;
+        &lt;Action&gt;Search&lt;/Action&gt;&#xd;
+        &lt;Communication&gt;Synchronous&lt;/Communication&gt;&#xd;
+        &lt;Resource&gt;&#xd;
+            &lt;ResourceName&gt;physicalassetmessage&lt;/ResourceName&gt;&#xd;
+        &lt;/Resource&gt;&#xd;
+    &lt;/EnterpriseHeader&gt;&#xd;
+    &lt;MessageBody&gt;&#xd;
+        &lt;EnterpriseSearch&gt;&#xd;
+            &lt;Offset&gt;0&lt;/Offset&gt;&#xd;
+            &lt;Rows&gt;10&lt;/Rows&gt;&#xd;
+            &lt;Result&gt;index&lt;/Result&gt;&#xd;
+            &lt;SearchQuery&gt;&quot;messageid&quot;: &quot;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a201&quot;&lt;/SearchQuery&gt;&#xd;
+        &lt;/EnterpriseSearch&gt;&#xd;
+    &lt;/MessageBody&gt;&#xd;
+&lt;/EnterpriseMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">47002</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">http</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/enterprise-search-v2</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\apache-jmeter-2.13_bin\TestResults\25112015_AWS_Version2_Testing\25112015_Publish_100t_RT4.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\apache-jmeter-2.13_bin\TestResults\25112015_AWS_Version2_Testing\25112015_Publish_100t_AR4.csv</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
