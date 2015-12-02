@@ -11,19 +11,7 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
-      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
-        <collectionProp name="AuthManager.auth_list">
-          <elementProp name="" elementType="Authorization">
-            <stringProp name="Authorization.url">https://estcuatvlb.global.umusic.ext:47006</stringProp>
-            <stringProp name="Authorization.username">user</stringProp>
-            <stringProp name="Authorization.password"></stringProp>
-            <stringProp name="Authorization.domain"></stringProp>
-            <stringProp name="Authorization.realm"></stringProp>
-          </elementProp>
-        </collectionProp>
-      </AuthManager>
-      <hashTree/>
-      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+      <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
         <collectionProp name="HeaderManager.headers">
           <elementProp name="" elementType="Header">
             <stringProp name="Header.name">Content-Type</stringProp>
@@ -88,6 +76,46 @@
         <stringProp name="username">GGESREAD</stringProp>
       </JDBCDataSource>
       <hashTree/>
+      <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+        <collectionProp name="AuthManager.auth_list">
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">https://estcuatvlb.global.umusic.ext:47006</stringProp>
+            <stringProp name="Authorization.username">user</stringProp>
+            <stringProp name="Authorization.password"></stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?q=physicalassetmessage</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search?_messageheader_resourceid=${P_ID}</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/_search</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+          <elementProp name="" elementType="Authorization">
+            <stringProp name="Authorization.url">http://${ELASTICSEARCH_URL}/lnk_resources/physicalassetmessage/</stringProp>
+            <stringProp name="Authorization.username">TrustedSearch</stringProp>
+            <stringProp name="Authorization.password">TrustedPassword</stringProp>
+            <stringProp name="Authorization.domain"></stringProp>
+            <stringProp name="Authorization.realm"></stringProp>
+          </elementProp>
+        </collectionProp>
+      </AuthManager>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="ESER_MINIMAL_REGRESSION_12SCN_PAM" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -126,20 +154,27 @@
                 <stringProp name="Argument.value">true</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
+              <elementProp name="P_OBJECTID" elementType="Argument">
+                <stringProp name="Argument.name">P_OBJECTID</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
             </collectionProp>
           </Arguments>
           <hashTree/>
           <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
             <collectionProp name="UserParameters.names">
-              <stringProp name="2476906">P_ID</stringProp>
+              <stringProp name="76784136">P_ID2</stringProp>
               <stringProp name="-1914269761">P_VERS</stringProp>
               <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="2476906">P_ID</stringProp>
             </collectionProp>
             <collectionProp name="UserParameters.thread_values">
-              <collectionProp name="-1126980543">
+              <collectionProp name="1142619317">
                 <stringProp name="172362555">${__time(yyyyMMdd&apos;T&apos;hhmmss)}SC01</stringProp>
                 <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
                 <stringProp name="3569038">true</stringProp>
+                <stringProp name="-1534498376">20151109T012056SC10</stringProp>
               </collectionProp>
             </collectionProp>
             <boolProp name="UserParameters.per_iteration">true</boolProp>
@@ -257,6 +292,40 @@
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">text/xml</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; rv:42.0) Gecko/20100101 Firefox/42.0</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="49588">202</stringProp>
@@ -296,7 +365,8 @@
                   <stringProp name="query">SELECT count(*)  FROM [ESDB_UAT].[dbo].[ES_LOGS]	
 WHERE id &gt; ${MaxID_1}
 AND RESOURCE_ID=&apos;${P_ID}&apos;
-AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
+and LOG_CODE=102010017
+and LOG_MESSAGE like &apos;Publish Successful at the Repository&apos;
 </stringProp>
                   <stringProp name="queryArguments"></stringProp>
                   <stringProp name="queryArgumentsTypes"></stringProp>
@@ -401,11 +471,33 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
                 <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
                 <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
                 <boolProp name="HTTPSampler.monitor">false</boolProp>
                 <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
                 <stringProp name="TestPlan.comments">20151027T030934  </stringProp>
               </HTTPSamplerProxy>
               <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; rv:42.0) Gecko/20100101 Firefox/42.0</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 200 assertion" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="49586">200</stringProp>
@@ -463,6 +555,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
                 <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
               </HTTPSamplerProxy>
               <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">text/xml</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Authorization</stringProp>
+                      <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
                 <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Count and message id assertion" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="1691182847">&lt;ResourceId&gt;${P_ID}&lt;/ResourceId&gt;</stringProp>
@@ -848,12 +953,25 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC03_Publish_PAM_MSG2" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC03_Publish_PAM_MSG2" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
           <stringProp name="TestPlan.comments">Publish a Physical asset message with version that has already been published</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -1002,6 +1120,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">text/xml</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="49588">202</stringProp>
@@ -1267,6 +1398,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
               <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
             </HTTPSamplerProxy>
             <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">text/xml</stringProp>
+                  </elementProp>
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
               <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="49588">202</stringProp>
@@ -1373,7 +1517,7 @@ AND LOG_MESSAGE like &apos;%The latest resource already exists%&apos;
                   <boolProp name="IfController.evaluateAll">false</boolProp>
                 </IfController>
                 <hashTree>
-                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGD_PAM Error Message is found" enabled="true">
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGD_PAM Message is found" enabled="true">
                     <boolProp name="displayJMeterProperties">false</boolProp>
                     <boolProp name="displayJMeterVariables">true</boolProp>
                     <boolProp name="displaySystemProperties">false</boolProp>
@@ -1477,6 +1621,19 @@ AND LOG_MESSAGE like &apos;%The latest resource already exists%&apos;
               </elementProp>
             </collectionProp>
           </Arguments>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
           <hashTree/>
           <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
             <collectionProp name="UserParameters.names">
@@ -2308,12 +2465,902 @@ AND LOG_MESSAGE like &apos;Delete from S3 Current completed%&apos;
             </hashTree>
           </hashTree>
         </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC05_DeleteNoVersion_PAM" enabled="false">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+          <stringProp name="TestPlan.comments">Delete the latest version of a published PAM message</stringProp>
+        </TransactionController>
+        <hashTree>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="P_ID" elementType="Argument">
+                <stringProp name="Argument.name">P_ID</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMdd&apos;T&apos;hhmmss)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="DONE" elementType="Argument">
+                <stringProp name="Argument.name">DONE</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="P_VERS2" elementType="Argument">
+                <stringProp name="Argument.name">P_VERS2</stringProp>
+                <stringProp name="Argument.value">${__time(yyyyMMddHHmmss001)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="User Parameters" enabled="true">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="2476906">P_ID</stringProp>
+              <stringProp name="-1914269761">P_VERS</stringProp>
+              <stringProp name="2104194">DONE</stringProp>
+              <stringProp name="787179603">P_VERS2</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-772960268">
+                <stringProp name="172362558">${__time(yyyyMMdd&apos;T&apos;hhmmss)}SC04</stringProp>
+                <stringProp name="-1343495840">${__time(yyyyMMddHHmmss000)}</stringProp>
+                <stringProp name="3569038">true</stringProp>
+                <stringProp name="-1343494879">${__time(yyyyMMddHHmmss001)}</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Publish PAM Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL_DB get max id" enabled="true">
+              <stringProp name="dataSource">myDatabase</stringProp>
+              <stringProp name="query">SELECT MAX(id) FROM [ESDB_UAT].[dbo].[ES_LOGS]</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">MaxID</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Reset &apos;DONE&apos; Variable to true" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">vars.put (&quot;DONE&quot;,&quot;true&quot;);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_01_POST_PublishRestFacade_V1" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;PhysicalAssetMessage xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://schemas.umusic.com/umg.eai.asset-messages.v1&quot;&gt;&#xd;
+  &lt;MessageHeader xmlns=&quot;&quot;&gt;&#xd;
+    &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a104&lt;/MessageId&gt;&#xd;
+    &lt;MessageSource&gt;AIC&lt;/MessageSource&gt;&#xd;
+    &lt;MessageUtcDateTimeStamp&gt;2015-04-30T09:33:42.1004185Z&lt;/MessageUtcDateTimeStamp&gt;&#xd;
+    &lt;ResourceType&gt;PhysicalAssetMessage&lt;/ResourceType&gt;&#xd;
+    &lt;ResourceId&gt;${P_ID}&lt;/ResourceId&gt;&#xd;
+    &lt;ResourceUtcDateTimeStamp&gt;2015-05-11T08:33:40Z&lt;/ResourceUtcDateTimeStamp&gt;&#xd;
+    &lt;SchemaVersion&gt;1.0&lt;/SchemaVersion&gt;&#xd;
+    &lt;DefaultLanguageScriptCode&gt;en&lt;/DefaultLanguageScriptCode&gt;&#xd;
+  &lt;/MessageHeader&gt;&#xd;
+  &lt;PhysicalAsset xmlns=&quot;&quot;&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Barcode&quot; IsPrimaryId=&quot;true&quot;&gt;${P_ID}-Mule&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Catalog&quot; IsPrimaryId=&quot;false&quot;&gt;878&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;Description&gt;CRY/NOW YOUR GONE&lt;/Description&gt;&#xd;
+    &lt;Version&gt;Copy&lt;/Version&gt;&#xd;
+    &lt;Location&gt;&#xd;
+      &lt;Country&gt;UK&lt;/Country&gt;&#xd;
+      &lt;VaultType&gt;UMG&lt;/VaultType&gt;&#xd;
+      &lt;VaultName&gt;ADS-TNT&lt;/VaultName&gt;&#xd;
+      &lt;ShelfCode&gt;ADS-TNT&lt;/ShelfCode&gt;&#xd;
+      &lt;ArchivalStatus&gt;Shelved&lt;/ArchivalStatus&gt;&#xd;
+    &lt;/Location&gt;&#xd;
+    &lt;Format&gt;1/4 inch audio tape[Reel Size - 5 &quot;]&lt;/Format&gt;&#xd;
+    &lt;MediaType&gt;Audio&lt;/MediaType&gt;&#xd;
+    &lt;TapeWidth&gt;5 inch&lt;/TapeWidth&gt;&#xd;
+    &lt;Label&gt;&#xd;
+      &lt;Name&gt;Dick James Music&lt;/Name&gt;&#xd;
+    &lt;/Label&gt;&#xd;
+    &lt;Artist&gt;&#xd;
+      &lt;PartyName&gt;&#xd;
+        &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+      &lt;/PartyName&gt;&#xd;
+    &lt;/Artist&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;1&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;CRY&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;2&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;NOW YOUR GONE&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+  &lt;/PhysicalAsset&gt;&#xd;
+&lt;/PhysicalAssetMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;version=${P_VERS}&amp;dummywilsontest=somecrappyvalue&amp;target=StudioHub</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49588">202</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="S3 DB Search Loop" enabled="true">
+              <stringProp name="WhileController.condition">${__javaScript(${DONE})}</stringProp>
+            </WhileController>
+            <hashTree>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+                <boolProp name="LoopController.continue_forever">true</boolProp>
+                <stringProp name="LoopController.loops">1</stringProp>
+              </LoopController>
+              <hashTree>
+                <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGB_Checking DB for S3 entry" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugSampler>
+                <hashTree/>
+                <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="P_Counter" enabled="true">
+                  <stringProp name="CounterConfig.start">1</stringProp>
+                  <stringProp name="CounterConfig.end">10</stringProp>
+                  <stringProp name="CounterConfig.incr">1</stringProp>
+                  <stringProp name="CounterConfig.name">P_Counter</stringProp>
+                  <stringProp name="CounterConfig.format">0</stringProp>
+                  <boolProp name="CounterConfig.per_user">true</boolProp>
+                </CounterConfig>
+                <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL_DB count for S3 Entry" enabled="true">
+                  <stringProp name="dataSource">myDatabase</stringProp>
+                  <stringProp name="query">SELECT count(*)  FROM [ESDB_UAT].[dbo].[ES_LOGS]	
+WHERE id &gt; ${MaxID_1}
+AND RESOURCE_ID=&apos;${P_ID}&apos;
+AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
+</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">S3RecordFound</stringProp>
+                </JDBCSampler>
+                <hashTree/>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if looped 10 times" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${P_Counter}&quot; == &quot;10&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGC_PAM Message not found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Log error, PAM message not found" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">log.error(&quot;ERROR: Message not found in S3 after 10 attempts&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="48">0</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">8</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if record is found" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${S3RecordFound_1}&quot; == &quot;1&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGD_PAM Message is found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGE_After loop" enabled="false">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                </hashTree>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Wait 2s before retrying" enabled="true">
+                  <stringProp name="ConstantTimer.delay">${WAITTIME}</stringProp>
+                </ConstantTimer>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Retrieve Latest Version Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_02_Retrieve_V1" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;wrap=false</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1757049069">PhysicalAssetMessage&lt;/ResourceType&gt;&lt;ResourceId xmlns=&quot;&quot;&gt;${P_ID}&lt;/ResourceId&gt;</stringProp>
+                  <stringProp name="469850159">MessageSource xmlns=&quot;&quot;&gt;AIC&lt;/</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 200 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Publish PAM v2 Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL_DB get max id" enabled="true">
+              <stringProp name="dataSource">myDatabase</stringProp>
+              <stringProp name="query">SELECT MAX(id) FROM [ESDB_UAT].[dbo].[ES_LOGS]</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">MaxID</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Reset &apos;DONE&apos; Variable to true" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">vars.put (&quot;DONE&quot;,&quot;true&quot;);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_03_POST_PublishRestFacade_V2" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;PhysicalAssetMessage xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://schemas.umusic.com/umg.eai.asset-messages.v1&quot;&gt;&#xd;
+  &lt;MessageHeader xmlns=&quot;&quot;&gt;&#xd;
+    &lt;MessageId&gt;wto-7df35cb9-fc10-4553-8f83-0cc6d8c1a104&lt;/MessageId&gt;&#xd;
+    &lt;MessageSource&gt;BIC&lt;/MessageSource&gt;&#xd;
+    &lt;MessageUtcDateTimeStamp&gt;2015-04-30T09:33:42.1004185Z&lt;/MessageUtcDateTimeStamp&gt;&#xd;
+    &lt;ResourceType&gt;PhysicalAssetMessage&lt;/ResourceType&gt;&#xd;
+    &lt;ResourceId&gt;${P_ID}&lt;/ResourceId&gt;&#xd;
+    &lt;ResourceUtcDateTimeStamp&gt;2015-05-11T08:33:40Z&lt;/ResourceUtcDateTimeStamp&gt;&#xd;
+    &lt;SchemaVersion&gt;1.0&lt;/SchemaVersion&gt;&#xd;
+    &lt;DefaultLanguageScriptCode&gt;en&lt;/DefaultLanguageScriptCode&gt;&#xd;
+  &lt;/MessageHeader&gt;&#xd;
+  &lt;PhysicalAsset xmlns=&quot;&quot;&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Barcode&quot; IsPrimaryId=&quot;true&quot;&gt;${P_ID}-Mule&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;PhysicalAssetIdentifier Type=&quot;Catalog&quot; IsPrimaryId=&quot;false&quot;&gt;878&lt;/PhysicalAssetIdentifier&gt;&#xd;
+    &lt;Description&gt;CRY/NOW YOUR GONE&lt;/Description&gt;&#xd;
+    &lt;Version&gt;Copy&lt;/Version&gt;&#xd;
+    &lt;Location&gt;&#xd;
+      &lt;Country&gt;UK&lt;/Country&gt;&#xd;
+      &lt;VaultType&gt;UMG&lt;/VaultType&gt;&#xd;
+      &lt;VaultName&gt;ADS-TNT&lt;/VaultName&gt;&#xd;
+      &lt;ShelfCode&gt;ADS-TNT&lt;/ShelfCode&gt;&#xd;
+      &lt;ArchivalStatus&gt;Shelved&lt;/ArchivalStatus&gt;&#xd;
+    &lt;/Location&gt;&#xd;
+    &lt;Format&gt;1/4 inch audio tape[Reel Size - 5 &quot;]&lt;/Format&gt;&#xd;
+    &lt;MediaType&gt;Audio&lt;/MediaType&gt;&#xd;
+    &lt;TapeWidth&gt;5 inch&lt;/TapeWidth&gt;&#xd;
+    &lt;Label&gt;&#xd;
+      &lt;Name&gt;Dick James Music&lt;/Name&gt;&#xd;
+    &lt;/Label&gt;&#xd;
+    &lt;Artist&gt;&#xd;
+      &lt;PartyName&gt;&#xd;
+        &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+      &lt;/PartyName&gt;&#xd;
+    &lt;/Artist&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;1&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;CRY&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+    &lt;Resource&gt;&#xd;
+      &lt;Index&gt;&#xd;
+        &lt;Sequence&gt;2&lt;/Sequence&gt;&#xd;
+      &lt;/Index&gt;&#xd;
+      &lt;ResourceTitle LanguageScriptCode=&quot;en&quot;&gt;&#xd;
+        &lt;Title&gt;NOW YOUR GONE&lt;/Title&gt;&#xd;
+      &lt;/ResourceTitle&gt;&#xd;
+      &lt;Artist&gt;&#xd;
+        &lt;PartyName&gt;&#xd;
+          &lt;Name&gt;GEMINI&lt;/Name&gt;&#xd;
+        &lt;/PartyName&gt;&#xd;
+      &lt;/Artist&gt;&#xd;
+    &lt;/Resource&gt;&#xd;
+  &lt;/PhysicalAsset&gt;&#xd;
+&lt;/PhysicalAssetMessage&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;version=${P_VERS2}&amp;dummywilsontest=somecrappyvalue&amp;target=StudioHub</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49588">202</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="S3 DB Search Loop" enabled="true">
+              <stringProp name="WhileController.condition">${__javaScript(${DONE})}</stringProp>
+            </WhileController>
+            <hashTree>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+                <boolProp name="LoopController.continue_forever">true</boolProp>
+                <stringProp name="LoopController.loops">1</stringProp>
+              </LoopController>
+              <hashTree>
+                <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGB_Checking DB for S3 entry" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugSampler>
+                <hashTree/>
+                <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="P_Counter" enabled="true">
+                  <stringProp name="CounterConfig.start">1</stringProp>
+                  <stringProp name="CounterConfig.end">10</stringProp>
+                  <stringProp name="CounterConfig.incr">1</stringProp>
+                  <stringProp name="CounterConfig.name">P_Counter</stringProp>
+                  <stringProp name="CounterConfig.format">0</stringProp>
+                  <boolProp name="CounterConfig.per_user">true</boolProp>
+                </CounterConfig>
+                <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL_DB count for S3 Entry" enabled="true">
+                  <stringProp name="dataSource">myDatabase</stringProp>
+                  <stringProp name="query">SELECT count(*)  FROM [ESDB_UAT].[dbo].[ES_LOGS]	
+WHERE id &gt; ${MaxID_1}
+AND RESOURCE_ID=&apos;${P_ID}&apos;
+AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
+</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">S3RecordFound</stringProp>
+                </JDBCSampler>
+                <hashTree/>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if looped 10 times" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${P_Counter}&quot; == &quot;10&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGC_PAM Message not found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Log error, PAM message not found" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">log.error(&quot;ERROR: Message not found in S3 after 10 attempts&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="48">0</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">8</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if record is found" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${S3RecordFound_1}&quot; == &quot;1&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGD_PAM Message is found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGE_After loop" enabled="false">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                </hashTree>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Wait 2s before retrying" enabled="true">
+                  <stringProp name="ConstantTimer.delay">${WAITTIME}</stringProp>
+                </ConstantTimer>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Retrieve Latest Version Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_04_Retrieve_V2" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;wrap=false</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1757049069">PhysicalAssetMessage&lt;/ResourceType&gt;&lt;ResourceId xmlns=&quot;&quot;&gt;${P_ID}&lt;/ResourceId&gt;</stringProp>
+                  <stringProp name="470773680">MessageSource xmlns=&quot;&quot;&gt;BIC&lt;/</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 200 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Delete Latest Version Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="DB get max id" enabled="true">
+              <stringProp name="dataSource">myDatabase</stringProp>
+              <stringProp name="query">SELECT MAX(id) FROM [ESDB_UAT].[dbo].[ES_LOGS]</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultSetHandler">Store as String</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames">MaxID</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+            <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="Reset &apos;DONE&apos; Variable to true" enabled="true">
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="script">vars.put (&quot;DONE&quot;,&quot;true&quot;);</stringProp>
+            </BeanShellPreProcessor>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_05_Delete_V2" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;wrap=false</stringProp>
+              <stringProp name="HTTPSampler.method">DELETE</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 202 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49588">202</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGA_Start of DB wait loop" enabled="false">
+              <boolProp name="displayJMeterProperties">false</boolProp>
+              <boolProp name="displayJMeterVariables">true</boolProp>
+              <boolProp name="displaySystemProperties">false</boolProp>
+            </DebugSampler>
+            <hashTree/>
+            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="S3 DB Search Loop" enabled="true">
+              <stringProp name="WhileController.condition">${__javaScript(${DONE})}</stringProp>
+            </WhileController>
+            <hashTree>
+              <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+                <boolProp name="LoopController.continue_forever">true</boolProp>
+                <stringProp name="LoopController.loops">1</stringProp>
+              </LoopController>
+              <hashTree>
+                <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGB_Checking DB for S3 entry" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugSampler>
+                <hashTree/>
+                <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="P_Counter" enabled="true">
+                  <stringProp name="CounterConfig.start">1</stringProp>
+                  <stringProp name="CounterConfig.end">10</stringProp>
+                  <stringProp name="CounterConfig.incr">1</stringProp>
+                  <stringProp name="CounterConfig.name">P_Counter</stringProp>
+                  <stringProp name="CounterConfig.format">0</stringProp>
+                  <boolProp name="CounterConfig.per_user">true</boolProp>
+                </CounterConfig>
+                <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SQL_DB count for S3 Entry" enabled="true">
+                  <stringProp name="dataSource">myDatabase</stringProp>
+                  <stringProp name="query">SELECT count(*)  FROM [ESDB_UAT].[dbo].[ES_LOGS]	
+WHERE id &gt; ${MaxID_1}
+AND RESOURCE_ID=&apos;${P_ID}&apos;
+AND LOG_MESSAGE like &apos;Delete from S3 Current completed%&apos;
+</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">S3RecordFound</stringProp>
+                </JDBCSampler>
+                <hashTree/>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if looped 10 times" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${P_Counter}&quot; == &quot;10&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGC_Message not found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Log error message" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">log.error(&quot;ERROR: Message not found in S3 after 10 attempts&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="48">0</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">8</intProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                </hashTree>
+                <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Checking if record is found" enabled="true">
+                  <stringProp name="IfController.condition">&quot;${S3RecordFound_1}&quot; == &quot;1&quot;</stringProp>
+                  <boolProp name="IfController.evaluateAll">false</boolProp>
+                </IfController>
+                <hashTree>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGD_Message is found" enabled="true">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                  <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Found change &apos;Done&apos; variable to false" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;DONE&quot;,&quot;false&quot;);</stringProp>
+                  </BeanShellPostProcessor>
+                  <hashTree/>
+                  <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="E: After loop" enabled="false">
+                    <boolProp name="displayJMeterProperties">false</boolProp>
+                    <boolProp name="displayJMeterVariables">true</boolProp>
+                    <boolProp name="displaySystemProperties">false</boolProp>
+                  </DebugSampler>
+                  <hashTree/>
+                </hashTree>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Wait 2s before retrying" enabled="true">
+                  <stringProp name="ConstantTimer.delay">${WAITTIME}</stringProp>
+                </ConstantTimer>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="MSGE_After Wait Loop" enabled="false">
+              <boolProp name="displayJMeterProperties">false</boolProp>
+              <boolProp name="displayJMeterVariables">true</boolProp>
+              <boolProp name="displaySystemProperties">false</boolProp>
+            </DebugSampler>
+            <hashTree/>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Retrieve Deleted Version After Delete Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_06_RetrieveDeletedMessage_V2" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;version=${P_VERS2}&amp;wrap=false</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1433710858">&lt;Description&gt;The specified resource does not exists in REPOSITORY&lt;/Description&gt;&lt;Exception&gt;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 404 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="51512">404</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Retrieve Last Version Loop" enabled="true">
+            <boolProp name="LoopController.continue_forever">true</boolProp>
+            <stringProp name="LoopController.loops">1</stringProp>
+          </LoopController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SC04_07_RetrieveLastMessage_V1" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${URL}</stringProp>
+              <stringProp name="HTTPSampler.port">${PORT}</stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/rest-facade/resources/physicalassetmessage/?identifier=${P_ID}&amp;version=${P_VERS}&amp;wrap=false</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-1757049069">PhysicalAssetMessage&lt;/ResourceType&gt;&lt;ResourceId xmlns=&quot;&quot;&gt;${P_ID}&lt;/ResourceId&gt;</stringProp>
+                  <stringProp name="469850159">MessageSource xmlns=&quot;&quot;&gt;AIC&lt;/</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Code 200 assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
         <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC05_Retrieve_Latest_Version" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
           <stringProp name="TestPlan.comments">Retrieve the latest version of Physical Asset via Rest Façade </stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -2990,6 +4037,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           <stringProp name="TestPlan.comments">Retrieve the latest version of Physical Asset that has been deleted but set include deleted flag</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -3806,6 +4866,19 @@ AND LOG_MESSAGE like &apos;Delete from S3 Current completed%&apos;
           <stringProp name="TestPlan.comments">Master Search for a Physical Asset message by id using GET </stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -4300,6 +5373,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           <stringProp name="TestPlan.comments">Index Search for Physical Asset Message by id using GET</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -4896,6 +5982,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           <stringProp name="TestPlan.comments">Metadata Search for Physical Asset Message by id using GET</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -5390,6 +6489,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           <stringProp name="TestPlan.comments">Master Search for a Physical Asset message by id using POST</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -5772,6 +6884,19 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           <stringProp name="TestPlan.comments">Index Search for Physical Asset Message by id using POST</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -6250,12 +7375,25 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC12_SearchPOST_PAM_MetaData" enabled="false">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SC12_SearchPOST_PAM_MetaData" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">false</boolProp>
           <stringProp name="TestPlan.comments">Metadata Search for Physical Asset Message by id using POST</stringProp>
         </TransactionController>
         <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">text/xml</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">dXNlcjpwYXNz</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
             <collectionProp name="Arguments.arguments">
               <elementProp name="P_ID" elementType="Argument">
@@ -6518,6 +7656,10 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
                   </ConstantTimer>
                   <hashTree/>
                 </hashTree>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Wait 2s before retrying" enabled="true">
+                  <stringProp name="ConstantTimer.delay">${WAITTIME}</stringProp>
+                </ConstantTimer>
+                <hashTree/>
               </hashTree>
             </hashTree>
           </hashTree>
@@ -6632,7 +7774,7 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
             </hashTree>
           </hashTree>
         </hashTree>
-        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -6662,10 +7804,10 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
               <threadCounts>true</threadCounts>
             </value>
           </objProp>
-          <stringProp name="filename"></stringProp>
+          <stringProp name="filename">C:\apache-jmeter-2.13_bin\TestResults\11112015_UAT_REGTests\SC12_SearchPOST_PAM_MetaData_JM.csv</stringProp>
         </ResultCollector>
         <hashTree/>
-        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -6730,6 +7872,1139 @@ AND LOG_MESSAGE like &apos;%End of S3 Current: Total Time Taken%&apos;
           </objProp>
           <stringProp name="filename"></stringProp>
         </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="JMX Connections" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1446489789000</longProp>
+        <longProp name="ThreadGroup.end_time">1446489789000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Test Action" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">60000</stringProp>
+        </TestAction>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_MULE_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1115175462">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-821254634">service:jmx:rmi:///jndi/rmi://172.25.170.144:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1341605062">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-821254634">service:jmx:rmi:///jndi/rmi://172.25.170.144:46089/jmxrmi</stringProp>
+              <stringProp reference="../../collectionProp/stringProp[3]"/>
+              <stringProp reference="../../collectionProp/stringProp[4]"/>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_MULE_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1787989009">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-867902378">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="50197763">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-867902378">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1538288778">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-756610506">service:jmx:rmi:///jndi/rmi://172.25.170.144:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="623859639">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-756610506">service:jmx:rmi:///jndi/rmi://172.25.170.144:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_QA_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-116760289">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-803258250">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ext:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="783776028">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-354505636">service:jmx:rmi:///jndi/rmi://esesbqa.global.umusic.ex:46078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="537551194">org.apache.activemq:type=Broker,brokerName=degtluv0835</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE1_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1432886555">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-1347466381">service:jmx:rmi:///jndi/rmi://172.25.170.137:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="721699080">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-1347466381">service:jmx:rmi:///jndi/rmi://172.25.170.137:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE1_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="21782884">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-713249922">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-2118598777">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-713249922">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE2_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1156095196">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="1571613533">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="998490439">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="1571613533">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE2_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1105749595">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-1853025006">service:jmx:rmi:///jndi/rmi://172.25.170.138:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1034632066">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-1853025006">service:jmx:rmi:///jndi/rmi://172.25.170.138:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE3_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-523330538">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-595971493">service:jmx:rmi:///jndi/rmi://172.25.170.140:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1631255097">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-595971493">service:jmx:rmi:///jndi/rmi://172.25.170.140:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT_MULE3_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-924221368">
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="-438490308">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="-1508861468">java.lang:type=Memory</stringProp>
+              <stringProp name="-687755404">HeapMemoryUsage</stringProp>
+              <stringProp name="107876">max</stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1230364267">
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="-438490308">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47089/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="1418096973">java.lang:type=OperatingSystem</stringProp>
+              <stringProp name="-101473953">ProcessCpuLoad</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT1_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1076108249">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-1282822253">service:jmx:rmi:///jndi/rmi://172.25.170.137:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1086040168">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-1282822253">service:jmx:rmi:///jndi/rmi://172.25.170.137:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT1_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-529501114">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1632647303">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307270">org.apache.activemq:type=Broker,brokerName=degtlun5366</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT2_AMQ_URL" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1856809764">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-276009115">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT2_AMQ_IP" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="860244357">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-1788380878">service:jmx:rmi:///jndi/rmi://172.25.170.138:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-1272574522">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-1788380878">service:jmx:rmi:///jndi/rmi://172.25.170.138:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT3_AMQ_IP" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="1737715017">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-531327365">service:jmx:rmi:///jndi/rmi://172.25.170.140:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-395103862">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-531327365">service:jmx:rmi:///jndi/rmi://172.25.170.140:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307271">org.apache.activemq:type=Broker,brokerName=degtlun5367</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UAT3_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1346347495">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="815800922">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
+        <hashTree/>
+        <kg.apc.jmeter.jmxmon.JMXMonCollector guiclass="kg.apc.jmeter.vizualizers.JMXMonGui" testclass="kg.apc.jmeter.jmxmon.JMXMonCollector" testname="JMX_UATALL_AMQ_URL" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="samplers">
+            <collectionProp name="-1346347495">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="815800922">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-373846180">service:jmx:rmi:///jndi/rmi://esesbuat3.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1857941822">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-274877057">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="1636257661">service:jmx:rmi:///jndi/rmi://esesbuat2.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="-527236998">
+              <stringProp name="-292183320">Total Messages</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="-313592180">TotalMessageCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+            <collectionProp name="1634911419">
+              <stringProp name="551259425">Total Consumers</stringProp>
+              <stringProp name="-648605794">service:jmx:rmi:///jndi/rmi://esesbuat1.global.umusic.ext:47078/jmxrmi</stringProp>
+              <stringProp name="1579513072">monitorRole</stringProp>
+              <stringProp name="-2123483848">hdjskslsl</stringProp>
+              <stringProp name="530307272">org.apache.activemq:type=Broker,brokerName=degtlun5368</stringProp>
+              <stringProp name="575628789">TotalConsumerCount</stringProp>
+              <stringProp name="0"></stringProp>
+              <stringProp name="1237">false</stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.jmxmon.JMXMonCollector>
         <hashTree/>
       </hashTree>
     </hashTree>
